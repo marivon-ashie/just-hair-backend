@@ -17,7 +17,7 @@ def register():
     if Client.query.filter_by(email=data['email']).first():
         return jsonify({"error": "Client already exists"}), 400
 
-    client = Client(email=data['email'], role=data['role'], surname=data['surname'], given_name=data['given_name'], phone_number=data['phone_number'], location=data['location'], hair_type=data['hair_type'])
+    client = Client(email=data['email'], role='client', surname=data['surname'], given_name=data['given_name'], phone_number=data['phone_number'], location=data['location'], hair_type=data['hair_type'])
     client.set_password(data['password'])
     db.session.add(client)
     db.session.commit()

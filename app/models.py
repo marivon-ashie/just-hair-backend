@@ -186,7 +186,7 @@ class ServiceProvider(db.Model):
     __tablename__ = 'service_providers'
 
     id = db.Column(db.Integer, primary_key=True)
-    role = db.Column(db.String(100), nullable=False)
+    role = db.Column(db.String(100), nullable=False, default='service_provider')
     surname = db.Column(db.String(100), nullable=False)
     given_name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), nullable=False, unique=True)
@@ -248,7 +248,7 @@ class Client(db.Model):
     surname = db.Column(db.String(100), nullable=False)
     given_name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), nullable=False, unique=True)
-    role = db.Column(db.String(100), nullable=False)
+    role = db.Column(db.String(100), nullable=False, default='client')
     picture = db.Column(db.String(100), nullable=True)
     phone_number = db.Column(db.String(20), nullable=True)
     location = db.Column(db.Text, nullable=False)
