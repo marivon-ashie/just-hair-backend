@@ -26,7 +26,13 @@ def create_app():
     jwt.init_app(app)
     limiter.init_app(app)
 
-    CORS(app)
+    # CORS(app, resources={r"/*": {"origins": "*"}})
+    CORS(
+    app,
+    resources={r"/*": {"origins": "*"}},
+    supports_credentials=True
+)
+
 
     # swagger
     from flask_swagger_ui import get_swaggerui_blueprint
